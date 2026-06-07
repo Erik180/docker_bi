@@ -29,6 +29,9 @@ case "$1" in
   inside_reporter)
     docker run --rm -v "$(pwd)/data:/data" reporter ls /data
     ;;
+  report_server)
+    docker run --rm -p 8080:80 -v "$(pwd)/data:/usr/share/nginx/html" nginx
+    ;;
   *)
     echo "Неизвестная команда: $1"
     ;;
